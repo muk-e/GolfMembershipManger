@@ -3,11 +3,13 @@
 
 #include "Monitor.h"
 #include "DeviceData.h"
+#include "MembersManageService.h"
 
 class Controller
 {
 private:
     Monitor *monitor;
+    MembersManageService *membersManageService;
 
 public:
     Controller();

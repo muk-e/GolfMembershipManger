@@ -4,6 +4,7 @@
 Controller::Controller()
 {
     monitor = new Monitor();
+    membersManageService = new MembersManageService();
 }
 
 Controller::~Controller()
@@ -12,9 +13,14 @@ Controller::~Controller()
 
 void Controller::updateEvent(DeviceData data)
 {
-    std::cout << data.devName << " : ";
-    for (const auto data : data.devData) {
-        std::cout << std::hex << data << " ";
+    if (data.devName == "cardReader") {
+        int cardNumber[5];
+        for (int i=0; i<5; i++)
+            cardNumber[i] = data.devData[i];
+
+        membersManageService->checkCardNumber(cardNumber);
     }
-    std::cout << std::endl;
+    if (data.devName == "ModeButton") {
+        membersManageService->updateStateEvent(data.devName);
+    }
 }
