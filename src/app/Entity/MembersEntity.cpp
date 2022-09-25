@@ -117,17 +117,17 @@ bool MembersEntity::delMemberInfo(int *cardNum)
 
 void MembersEntity::memoryToDB()
 {
-    fpDBData = fopen("memberLists.bin", "w"); //NULL
-    FILE *fpDBData2 = fopen("memberLists.txt", "w"); //NULL
-    if (fpDBData == NULL) {
-        fprintf(stderr, "file open error!\n");
-        return;
-    }
+    // fpDBData = fopen("memberLists.bin", "w"); //NULL
+    // FILE *fpDBData2 = fopen("memberLists.txt", "w"); //NULL
+    // if (fpDBData == NULL) {
+    //     fprintf(stderr, "file open error!\n");
+    //     return;
+    // }
 
-    for (const auto &member : vecMembersList) {
-        fwrite(&member, sizeof(member), 1, fpDBData);
-        fprintf(fpDBData2, "%05d, %s\n", member.id, member.name);
-    }
-    fclose(fpDBData);
-    fclose(fpDBData2);
+    // for (const auto &member : vecMembersList) {
+    //     fwrite(&member, sizeof(member), 1, fpDBData);
+    //     fprintf(fpDBData2, "%05d, %s\n", member.id, member.name);
+    // }
+    // fclose(fpDBData);
+    // fclose(fpDBData2);
 }
